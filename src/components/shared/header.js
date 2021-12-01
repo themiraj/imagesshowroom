@@ -12,6 +12,12 @@ import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import {
+  BrowserRouter as Router,
+  Route,
+  Routes,
+  Link
+} from "react-router-dom";
 
 const pages = ['Products', 'Pricing', 'Blog'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -36,6 +42,7 @@ const Header = () => {
   };
 
   return (
+
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
@@ -104,7 +111,7 @@ const Header = () => {
             ))}
           </Box>
           <Box>
-            <Tooltip title="Open settings">
+            <Tooltip title="Fav cart">
               <IconButton style={{color: 'white'}}>
                 <FavoriteBorderIcon/>      
               </IconButton>
@@ -142,6 +149,7 @@ const Header = () => {
         </Toolbar>
       </Container>
     </AppBar>
+
   );
 };
 export default Header;

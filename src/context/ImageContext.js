@@ -18,9 +18,12 @@ const ImageContextProvider = props => {
                     image:action.id,
                     open:true
                 })
+                console.log('sdsd')
                 break;
-            case "SEARCH_IMAGES":
-                console.log('sdsdsds');
+            case "DOWNLOAD":
+                break;
+            case "FAV":
+                console.log('sdsd')
                 break;
             default:
                 return 'images';
@@ -29,14 +32,14 @@ const ImageContextProvider = props => {
     const [state, dispatch] = useReducer(Reducer, images)
 
     async function getImages() {
-        let response = await fetch(`${process.env.REACT_APP_API_URL}/photos?per_page=20&client_id=${process.env.REACT_APP_API_KEY}`);
+        let response = await fetch(`${process.env.REACT_APP_API_URL}photos?per_page=20&client_id=${process.env.REACT_APP_API_KEY}`);
         let data = await response.json();
         return data
     }
     useEffect(async () => {
         const  imagesArray = await getImages();
         await setimages(imagesArray)
-    }, [])
+    },[])
     return (    
         <ImageContext.Provider value={{
                 images,

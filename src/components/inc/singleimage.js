@@ -4,7 +4,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { ImageContext } from '../../context/ImageContext'
-
+import {
+    BrowserRouter as Router,
+    Route,
+    Routes,
+    Link
+} from "react-router-dom";
 
 const style = {
   position: 'absolute',
@@ -68,7 +73,7 @@ export default function Singleimage() {
                             <span className="related-tag">Related Images</span>    
                                 {
                                     detail.related_collections.results.map((result)=>{
-                                        return <div><img src={result.preview_photos[0].urls.thumb} className="inner-images"/></div>
+                                        return <div key={result.id}><img src={result.preview_photos[0].urls.thumb} className="inner-images"/></div>
                                     })
                                 }
                             </div> 

@@ -6,10 +6,13 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import DataObjectIcon from '@mui/icons-material/DataObject';
 const Imageslist = () => {
     const {images,dispatch} = useContext(ImageContext);
+    const download = () => {
+        console.log('sdsdsd')
+    }
     return images.length ? (
         images.map((image,index) =>{
             return (
-                 <Grid item xs={3} key={index}>
+                 <Grid item xs={3} key={image.id}>
                     <Box
                         sx={{
                         display: 'flex',
@@ -28,10 +31,15 @@ const Imageslist = () => {
                                 <img src={image.urls.thumb} style={{width:'100%',maxHeight:'200px',objectFit:'cover'}}/>
                             </div> 
                                 <div className="action text-left" align={'left'}>
-                                <IconButton aria-label="Download" variant="contained" color="success">
+                                <IconButton aria-label="Download" variant="contained" color="success" onClick={()=> download()}>
                                     <FileDownloadIcon/>        
                                 </IconButton>
-                                <IconButton aria-label="Favorite" color="success">
+                                <IconButton aria-label="Favorite" color="success" onClick={()=> dispatch(
+                                    {
+                                        type:"FAV",
+                                        id: image.id
+                                    }
+                                )}>
                                     <FavoriteBorderIcon/>        
                                 </IconButton>
                                 {/* onClick={() => dispatch({type: 'changeTheme'})} */}
