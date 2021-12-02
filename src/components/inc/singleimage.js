@@ -44,7 +44,6 @@ export default function Singleimage() {
 
 
   }
-  //${process.env.REACT_APP_API_URL}photos/${single.id}?client_id=${process.env.REACT_APP_API_KEY}
   useEffect(async() => {
       if(single.open === true){
             setOpen(true)

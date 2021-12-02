@@ -10,6 +10,7 @@ import {
     Routes,
     Link
   } from "react-router-dom";
+import Pagination from '../inc/pagination'
   
 const Home = () => {
     return (
@@ -21,8 +22,9 @@ const Home = () => {
                         <Route path="/"  element={[
                             // <div>
                           
-                               <Imageslist/>,
-                               <Singleimage/>
+                               <Imageslist key={1}/>,
+                               <Singleimage key={2}/>,
+                               <Pagination key={3}/>
                           
                             // </div>
                         ]}/>

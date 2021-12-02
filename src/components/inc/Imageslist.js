@@ -4,15 +4,13 @@ import {Box,Paper,Grid,IconButton} from '@mui/material/';
 import FileDownloadIcon from '@mui/icons-material/FileDownload';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import DataObjectIcon from '@mui/icons-material/DataObject';
+import {Link} from 'react-router-dom' 
 const Imageslist = () => {
     const {images,dispatch} = useContext(ImageContext);
-    const download = () => {
-        console.log('sdsdsd')
-    }
     return images.length ? (
         images.map((image,index) =>{
             return (
-                 <Grid item xs={3} key={image.id}>
+                 <Grid item xs={3} key={index}>
                     <Box
                         sx={{
                         display: 'flex',
@@ -31,8 +29,10 @@ const Imageslist = () => {
                                 <img src={image.urls.thumb} style={{width:'100%',maxHeight:'200px',objectFit:'cover'}}/>
                             </div> 
                                 <div className="action text-left" align={'left'}>
-                                <IconButton aria-label="Download" variant="contained" color="success" onClick={()=> download()}>
-                                    <FileDownloadIcon/>        
+                                 <IconButton aria-label="Download" variant="contained" color="success" className="download-btn">
+                                    <a href={`${image.links.download}&force=true`} target="_blank">
+                                        <FileDownloadIcon/>        
+                                    </a>
                                 </IconButton>
                                 <IconButton aria-label="Favorite" color="success" onClick={()=> dispatch(
                                     {
@@ -42,7 +42,6 @@ const Imageslist = () => {
                                 )}>
                                     <FavoriteBorderIcon/>        
                                 </IconButton>
-                                {/* onClick={() => dispatch({type: 'changeTheme'})} */}
                                 <IconButton aria-label="Details" onClick={() => dispatch(
                                     {
                                         type: "DETAIL_IMG",
