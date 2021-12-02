@@ -19,7 +19,7 @@ const Home = () => {
             <Grid container spacing={2}>
                 <ImageContextProvider>
                     <Routes>
-                        <Route path="/"  element={[
+                        <Route path="/imagesshowroom"  element={[
                             // <div>
                           
                                <Imageslist key={1}/>,
@@ -28,7 +28,7 @@ const Home = () => {
                           
                             // </div>
                         ]}/>
-                        <Route path="/cart" element={<Cart/>} />
+                        <Route path="/imagesshowroom/cart" element={<Cart/>} />
                     </Routes>
                 </ImageContextProvider>
             </Grid>
